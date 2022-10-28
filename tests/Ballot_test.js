@@ -16,10 +16,6 @@ describe("Ballot", function () {
         await ballot.deployed()
     })
 
-    it("test initial balance", async function () {
-        expect(await ballot.balance()).to.eq(0)
-    });
-
     it("test voting is finished error", async function() {
         await ballot.createVoting(0, 1, 0, [])
         await expect(ballot.voteFor(0)).to.be.revertedWith("Voting is finished.")
